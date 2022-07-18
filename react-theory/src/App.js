@@ -1,5 +1,6 @@
 import React from 'react';
 // import './App.css';
+import Car from './Car/Car';
 
 const divStyle = {
   textAlign: 'center'
@@ -11,7 +12,9 @@ function App() {
       <div>
         <h1>Hello world!!!</h1>
       </div>
-      <p style={{color: 'red', fontSize: '40px'}}>I am Frontend developer</p>
+      <p>I am Frontend developer</p>
+
+      <Car />
     </div>
   )
 }
