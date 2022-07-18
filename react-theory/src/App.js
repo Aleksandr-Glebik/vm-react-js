@@ -14,15 +14,36 @@ class App extends Component {
     showCars: false,
   }
 
-  changeTitleHandler = (newTitle) => {
-    this.setState({
-      pageTitle: newTitle
-    })
-  }
+  // changeTitleHandler = (newTitle) => {
+  //   this.setState({
+  //     pageTitle: newTitle
+  //   })
+  // }
 
   toggleCarsHandler = () => {
     this.setState({
       showCars: !this.state.showCars
+    })
+  }
+
+  onChangeName = (name, ind) => {
+    // console.log(name, ind)
+    const car = this.state.cars[ind]
+    car.name = name
+    // const cars = this.state.cars.concat()
+    const cars = [...this.state.cars]
+    cars[ind] = car
+    this.setState({
+      cars: cars
+    })
+  }
+
+  deleteHandler(ind) {
+    const cars = this.state.cars.concat()
+    cars.splice(ind, 1)
+
+    this.setState({
+      cars: cars
     })
   }
 
@@ -38,7 +59,8 @@ class App extends Component {
       cars = this.state.cars.map((car, ind) => {
         return (
           <Car key={ind} name={car.name} year={car.year}
-            onChangeTitle={() => this.changeTitleHandler(car.name)}
+            onDelete={this.deleteHandler.bind(this, ind)}
+            onChangeName={(event) => this.onChangeName(event.target.value, ind)}
           />
         )
        })
