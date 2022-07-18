@@ -14,7 +14,25 @@ class App extends Component {
     pageTitle: 'React components'
   }
 
+  // changeTitleHandler() {
+  // }
+  // changeTitleHandler: function () {
+  // }
+  changeTitleHandler = () => {
+    const oldTitle = this.state.pageTitle
+    const newTitle = oldTitle + ' (changed)'
+    // console.log('click!')
+
+    this.setState({
+      pageTitle: newTitle
+    })
+  }
+
+
+
   render() {
+    console.log('render')
+
     const divStyle = {
       textAlign: 'center'
     }
@@ -26,6 +44,8 @@ class App extends Component {
         <div>
           <h1>{this.state.pageTitle}</h1>
         </div>
+
+        <button onClick={this.changeTitleHandler}>Change title</button>
 
         <Car name={cars[0].name} year={cars[0].year} />
         <Car name={cars[1].name} year={cars[1].year} />
