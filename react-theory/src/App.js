@@ -15,6 +15,7 @@ function App() {
       <p>I am Frontend developer</p>
 
       <Car />
+      <Car />
     </div>
   )
 }
