@@ -14,9 +14,15 @@ function App() {
       </div>
       <p>I am Frontend developer</p>
 
-      <Car name={'Citroen C4'} year={'2005'}/>
-      <Car name={'Toyota Camry'} year={'2020'}/>
-      <Car name={'BMW M5'} year={'2022'}/>
+      <Car name={'Citroen C4'} year={'2005'}>
+        <p style={{color: 'grey'}}>Color: white</p>
+      </Car>
+      <Car name={'Toyota Camry'} year={'2020'}>
+        <p style={{color: 'black'}}>Color: black</p>
+      </Car>
+      <Car name={'BMW M5'} year={'2022'}>
+        <p style={{color: 'red'}}>Color: red</p>
+      </Car>
     </div>
   )
 }
