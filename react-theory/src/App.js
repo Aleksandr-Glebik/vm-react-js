@@ -14,8 +14,9 @@ function App() {
       </div>
       <p>I am Frontend developer</p>
 
-      <Car />
-      <Car />
+      <Car name={'Citroen C4'} year={'2005'}/>
+      <Car name={'Toyota Camry'} year={'2020'}/>
+      <Car name={'BMW M5'} year={'2022'}/>
     </div>
   )
 }
