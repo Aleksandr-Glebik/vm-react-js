@@ -4,14 +4,14 @@ import Car from './Car/Car';
 
 class App extends Component {
   constructor(props) {
-    console.log('app constructor')
+    // console.log('app constructor')
     super(props)
 
     this.state = {
       cars: [
         {name: 'Citroen C4', year: 2005},
-        {name: 'Toyota Camry', year: 2020},
-        {name: 'BMW M5', year: 2022}
+        // {name: 'Toyota Camry', year: 2020},
+        // {name: 'BMW M5', year: 2022}
       ],
       pageTitle: 'React components',
       showCars: false,
@@ -44,9 +44,9 @@ class App extends Component {
     })
   }
 
-  componentWillMount() {
-    console.log('APP componentWillMount')
-  }
+  // componentWillMount() {
+  //   console.log('APP componentWillMount')
+  // }
 
   componentDidMount() {
     console.log('APP componentDidMount')
