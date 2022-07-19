@@ -1,16 +1,29 @@
 import React, { Children } from 'react';
+import style from './Car.css'
 
-export default (props) => (
-    <div style={{
-           border: '1px solid #ccc',
-           marginBottom: '20px',
-           padding: '10px',
-           boxShadow: '0 4px 5px 0 rgba(0, 0, 0, .14)',
-           borderRadius: '10px'
-        }}>
-        <h3>Car name: {props.name}</h3>
-        <p>Year: <strong>{props.year}</strong></p>
-        <input onChange={props.onChangeName} value={props.name} />
-        <button onClick={props.onDelete}>Delete</button>
-    </div>
-)
+export default (props) => {
+ const inputClasses = ['input']
+
+ if (props.name !== '') {
+    inputClasses.push('green')
+ } else {
+    inputClasses.push('red')
+ }
+
+ if (props.name.length > 10) {
+    inputClasses.push('bold')
+ }
+
+ return (
+  <div className='Car'>
+    <h3>Car name: {props.name}</h3>
+    <p>Year: <strong>{props.year}</strong></p>
+    <input
+      onChange={props.onChangeName}
+      value={props.name}
+      className={inputClasses.join(' ')}
+    />
+    <button onClick={props.onDelete}>Delete</button>
+  </div>
+ )
+}
