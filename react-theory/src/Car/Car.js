@@ -2,32 +2,32 @@ import React, { Children } from 'react';
 import './Car.css'
 class Car extends React.Component {
 
-   componentWillReceiveProps(nextProps) {
-      console.log('Car componentWillReceiveProps', nextProps);
-   }
+   // componentWillReceiveProps(nextProps) {
+   //    console.log('Car componentWillReceiveProps', nextProps);
+   // }
 
    shouldComponentUpdate(nextProps, nextState) {
       console.log('Car shouldComponentUpdate', nextProps, nextState);
       return nextProps.name.trim() !== this.props.name.trim()
    }
 
-   componentWillUpdate(nextProps, nextState) {
-      console.log('Car componentWillUpdate', nextProps, nextState);
-   }
+   // componentWillUpdate(nextProps, nextState) {
+   //    console.log('Car componentWillUpdate', nextProps, nextState);
+   // }
 
-   static getDerivedStateFromProps(nextProps, prevState) {
-      console.log('Car getDerivedStateFromProps', nextProps, prevState);
+   // static getDerivedStateFromProps(nextProps, prevState) {
+   //    console.log('Car getDerivedStateFromProps', nextProps, prevState);
 
-      return prevState
-   }
+   //    return prevState
+   // }
 
    componentDidUpdate() {
       console.log('Car componentDidUpdate');
    }
 
-   getSnapshotBeforeUpdate() {
-      console.log('Car getSnapshotBeforeUpdate');
-   }
+   // getSnapshotBeforeUpdate() {
+   //    console.log('Car getSnapshotBeforeUpdate');
+   // }
 
    componentWillUnmount() {
       console.log('Car componentWillUnmount');
@@ -35,6 +35,11 @@ class Car extends React.Component {
 
    render() {
       console.log('render Car');
+
+      if (Math.random() > 0.7) {
+         throw new Error('Car random failed')
+      }
+
       const inputClasses = ['input']
 
       if (this.props.name !== '') {
