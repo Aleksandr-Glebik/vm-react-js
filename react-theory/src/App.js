@@ -3,7 +3,6 @@ import Car from './Car/Car';
 
 
 class App extends Component {
-
   state = {
     cars: [
       {name: 'Citroen C4', year: 2005},
@@ -14,12 +13,6 @@ class App extends Component {
     showCars: false,
   }
 
-  // changeTitleHandler = (newTitle) => {
-  //   this.setState({
-  //     pageTitle: newTitle
-  //   })
-  // }
-
   toggleCarsHandler = () => {
     this.setState({
       showCars: !this.state.showCars
@@ -27,12 +20,11 @@ class App extends Component {
   }
 
   onChangeName = (name, ind) => {
-    // console.log(name, ind)
     const car = this.state.cars[ind]
     car.name = name
-    // const cars = this.state.cars.concat()
     const cars = [...this.state.cars]
     cars[ind] = car
+
     this.setState({
       cars: cars
     })
@@ -48,8 +40,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('render')
-
     const divStyle = {
       textAlign: 'center'
     }
@@ -73,17 +63,15 @@ class App extends Component {
 
         <button onClick={this.toggleCarsHandler}>Toggle Cars</button>
 
-        {/* { this.state.showCars
-           ? this.state.cars.map((car, ind) => {
-              return (
-                <Car key={ind} name={car.name} year={car.year}
-                  onChangeTitle={() => this.changeTitleHandler(car.name)}
-                />
-              )
-             })
-           : null
-        } */}
-        { cars }
+        <div style={{
+          width: '400px',
+          margin: 'auto',
+          paddingTop: '20px'
+        }}>
+          { cars }
+        </div>
+
+
       </div>
     )
   }
