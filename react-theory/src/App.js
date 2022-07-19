@@ -10,8 +10,8 @@ class App extends Component {
     this.state = {
       cars: [
         {name: 'Citroen C4', year: 2005},
-        // {name: 'Toyota Camry', year: 2020},
-        // {name: 'BMW M5', year: 2022}
+        {name: 'Toyota Camry', year: '2020'},
+        {name: 'BMW M5', year: 2022}
       ],
       pageTitle: 'React components',
       showCars: false,
