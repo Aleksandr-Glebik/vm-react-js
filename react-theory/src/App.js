@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       cars: [
         {name: 'Citroen C4', year: 2005},
-        {name: 'Toyota Camry', year: '2020'},
+        {name: 'Toyota Camry', year: 2020},
         {name: 'BMW M5', year: 2022}
       ],
       pageTitle: 'React components',
@@ -64,7 +64,10 @@ class App extends Component {
       cars = this.state.cars.map((car, ind) => {
         return (
           <ErrorBoundary key={ind}>
-            <Car name={car.name} year={car.year}
+            <Car
+              name={car.name}
+              year={car.year}
+              ind={ind}
               onDelete={this.deleteHandler.bind(this, ind)}
               onChangeName={(event) => this.onChangeName(event.target.value, ind)}
             />
