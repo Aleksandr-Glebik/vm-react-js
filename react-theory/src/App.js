@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.scss'
 import About from './About/About'
 import Cars from './Cars/Cars'
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -12,20 +12,20 @@ class App extends Component {
         <nav className="nav">
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about">About</NavLink>
             </li>
             <li>
-              <Link to="/cars">Cars</Link>
+              <NavLink to="/cars">Cars</NavLink>
             </li>
           </ul>
         </nav>
 
         <hr/>
         <Routes>
-          <Route path="/" element={<h1>Home page</h1>}/>
+          <Route path="/" element={<h1 style={{textAlign: 'center'}}>Home page</h1>}/>
           <Route path="/about" element={<About />}/>
           <Route path="/cars" element={<Cars />}/>
         </Routes>
