@@ -6,6 +6,11 @@ import { Routes, Route, NavLink } from 'react-router-dom'
 import CarDetail from './CarDetail/CarDetail'
 
 class App extends Component {
+
+  state = {
+    isLoggedIn: false
+  }
+
   render() {
 
     return (
@@ -23,16 +28,28 @@ class App extends Component {
             </li>
           </ul>
         </nav>
+        <hr />
+        <div style={{textAlign: 'center'}}>
+          <h3>Is logged in {this.state.isLoggedIn ? 'true' : 'false'}</h3>
+          <button
+            onClick={() => this.setState({
+              isLoggedIn: !this.state.isLoggedIn
+            })}>Login</button>
+        </div>
+
 
         <hr/>
         <Routes>
           <Route path="/" element={<h1 style={{textAlign: 'center'}}>Home page</h1>}/>
-          <Route path="/about" element={<About />}/>
+
+          { this.state.isLoggedIn ? <Route path="/about" element={<About />}/> : null }
+
           <Route path="/cars" element={<Cars />}/>
           <Route path="/cars">
             {/* <Route path=":name" element={<h1>Carrrrr</h1>} /> */}
             <Route path=":name" element={<CarDetail />} />
           </Route>
+          {/* <Route path="*" element={<h1 style={{textAlign: 'center', color: 'red'}}>404 not found</h1>} /> */}
         </Routes>
       </div>
     )
