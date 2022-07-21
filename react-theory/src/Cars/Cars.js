@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Car from './Car/Car'
+import { Link } from 'react-router-dom'
 
 export default class Cars extends Component {
   state = {
@@ -15,8 +16,13 @@ export default class Cars extends Component {
       <div style={{
         width: 400,
         margin: 'auto',
-        paddingTop: '20px'
+        paddingTop: '20px',
+        textAlign: 'center'
       }}>
+        <Link to="/">
+          <button>Go to page Home</button>
+        </Link>
+        <hr />
         {this.state.cars.map((car, index) => {
           return (
             <Car
