@@ -12,13 +12,13 @@ class App extends Component {
         <nav className="nav">
           <ul>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="/about">About</a>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <a href="/cars">Cars</a>
+              <Link to="/cars">Cars</Link>
             </li>
           </ul>
         </nav>
