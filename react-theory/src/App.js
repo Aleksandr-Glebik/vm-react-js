@@ -1,17 +1,11 @@
 import React, { Component } from 'react'
 import './App.scss'
 import {connect} from 'react-redux'
+import Counter from './Counter'
 
 class App extends Component {
 
-  // updateCounter(value) {
-  //   // this.setState({
-  //   //   counter: this.props.counter + value
-  //   // })
-  // }
-
   render() {
-    // console.log('this.props', this.props);
     return (
       <div className={'App'}>
         <h1>Счетчик <strong>{this.props.counter}</strong></h1>
@@ -27,6 +21,8 @@ class App extends Component {
           <button onClick={() => this.props.onAddNumber(15)}>Добавить 15</button>
           <button onClick={() => this.props.onAddNumber(-15)}>Вычесть 15</button>
         </div>
+
+        <Counter />
       </div>
     )
   }
@@ -34,7 +30,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    counter: state.counter1.counter
   }
 }
 
@@ -43,7 +39,6 @@ function mapDispatchToProps(dispatch) {
     onAdd: () => dispatch({type: 'ADD'}),
     onSub: () => dispatch({type: 'SUB'}),
     onAddNumber: number => dispatch({type: 'ADD_NUMBER', payload: number}),
-    // onSubNumber: number => dispatch({type: 'SUB_NUMBER', payload: number}),
   }
 }
 
