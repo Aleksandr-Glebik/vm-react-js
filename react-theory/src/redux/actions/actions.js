@@ -22,3 +22,10 @@ export function addNumber (number) {
         payload: number
     }
 }
+export function asyncAdd (number) {
+    return (dispatch) => {
+        setTimeout(() => {
+            dispatch(addNumber(number))
+        }, 2000)
+    }
+}
