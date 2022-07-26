@@ -5,11 +5,28 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import {BrowserRouter} from 'react-router-dom'
 
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import rootReducer from './redux/rootReducer'
 import {Provider} from 'react-redux'
 
-const store = createStore(rootReducer)
+// function loggerMiddleware(store) {
+//   return function(next) {
+//     return function(action) {
+//       const result = next(action)
+//       console.log('middleware', store.getState());
+
+//       return result
+//     }
+//   }
+// }
+
+const loggerMiddleware = store => next => action => {
+  const result = next(action)
+  console.log('middleware', store.getState());
+  return result
+}
+
+const store = createStore(rootReducer, applyMiddleware(loggerMiddleware))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
